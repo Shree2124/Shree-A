@@ -84,7 +84,7 @@ const Contact = () => {
         name: '',
         email: '',
         subject: '',
-        message: ''
+        msg: ''
       })
     }
   }
@@ -180,14 +180,14 @@ const Contact = () => {
 
               <div className='mb-6'>
                 <label
-                  htmlFor='message'
+                  htmlFor='msg'
                   className='block mb-2 font-medium text-sm'
                 >
                   Message
                 </label>
                 <textarea
-                  id='message'
-                  name='message'
+                  id='msg'
+                  name='msg'
                   value={formData.msg}
                   onChange={handleChange}
                   rows='5'
