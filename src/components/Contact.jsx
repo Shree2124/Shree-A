@@ -64,7 +64,7 @@ const Contact = () => {
 
     try {
       const res = await axios.post(
-        'https://portfolio-kappa-lovat-61.vercel.app/api/v1/mail',
+        'https://portfolio-api-blush-eight.vercel.app/api/v1/mail',
         formData
       )
       if (res.status === 200) {
