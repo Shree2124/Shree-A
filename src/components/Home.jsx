@@ -33,7 +33,7 @@ const Home = () => {
   }, []);
 
   const scrollToAbout = () => {
-    const aboutSection = document.getElementById('projects');
+    const aboutSection = document.getElementById('about');
     aboutSection.scrollIntoView({ behavior: 'smooth' });
   };
 

@@ -20,7 +20,7 @@ const Navbar = ({ activeSection, handleNavigation }) => {
 
   const navItems = [
     { name: 'Home', id: 'home' },
-    // { name: 'About', id: 'about' },
+    { name: 'About', id: 'about' },
     { name: 'Projects', id: 'projects' },
     { name: 'Experience', id: 'experience' },
     { name: 'Achievements', id: 'achievements' },

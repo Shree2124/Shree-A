@@ -14,9 +14,9 @@ function App () {
   const [theme, setTheme] = useState('light')
   const [activeSection, setActiveSection] = useState('home')
 
-  const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light')
-  }
+  // const toggleTheme = () => {
+  //   setTheme(theme === 'light' ? 'dark' : 'light')
+  // }
 
   useEffect(() => {
     if (theme === 'dark') {
@@ -43,9 +43,9 @@ function App () {
         <section id='home'>
           <Home />
         </section>
-        {/* <section id="about">
+        <section id="about">
           <About />
-        </section> */}
+        </section>
         <section id='projects'>
           <Projects />
         </section>

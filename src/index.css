@@ -73,3 +73,137 @@ body {
 .skill-progress-value {
   @apply h-full bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-1000 ease-out;
 }
+
+
+/* Complete CSS for About section with completely fixed typing effect */
+
+/* Floating animation for profile image */
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.floating-reverse {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes floatReverse {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Completely fixed typing effect animation */
+.typing-container {
+  min-height: 6rem; /* Ensures enough space for both lines */
+}
+
+/* First typing element: "Shree Alasande" */
+.typing-effect {
+  position: relative;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  border-right: 3px solid transparent;
+  animation: 
+    typing-name 2s steps(15) forwards,
+    blink 0.8s infinite;
+}
+
+/* Second typing element: "Computer Engineering Student" */
+.typing-effect-slow {
+  position: relative;
+  color: #3b82f6;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  border-right: 3px solid transparent;
+  animation: 
+    typing-title 2.5s steps(27) forwards 2.5s,
+    blink 0.8s infinite 2.5s;
+}
+
+@keyframes typing-name {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes typing-title {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  0%, 100% { border-right-color: transparent }
+  50% { border-right-color: #3b82f6 }
+}
+
+/* Counter animation for stats */
+.counter {
+  opacity: 0;
+  animation: countUp 2s forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* General fade-in animation */
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Text gradient effect */
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #3b82f6, #8b5cf6);
+}
