@@ -34,6 +34,8 @@ const Skills = () => {
     tools: [
       { name: 'Git & GitHub', level: 95 },
       { name: 'Postman', level: 80 },
+      { name: 'PyTest', level: 70 },
+      { name: 'Selenium', level: 65 },
     ],
   };
 

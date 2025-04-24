@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { ExternalLink, Github, Code } from 'lucide-react';
 import meetai from "../assets/projects/meetai.png"
 import lms from "../assets/projects/lms.png"
+import tunetube from "../assets/projects/tunetube.png"
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -25,10 +26,20 @@ const Projects = () => {
       title: "LMS (Learning Management System)",
       description: "Interactive Learning Management System with user authentication, course creation, and progress tracking.",
       image: lms,
-      category: "full stack",
+      category: "full-stack",
       technologies: ["React.js", "Chart.js", "Tailwind CSS", "Node.js", "Express.js"],
       liveUrl: "https://scroll-hack-rust.vercel.app/",
       githubUrl: "https://github.com/Shree2124/ScrollHack",
+    },
+    {
+      id: 3,
+      title: "Tune Tube (Youtube Clone)",
+      description: "A full stack YouTube clone with user authentication, video upload, like and comment system.",
+      image: tunetube,
+      category: "full-stack",
+      technologies: ["React.js", "Tailwind CSS", "Node.js", "Express.js"],
+      liveUrl: "https://youtube-clone-ca89.vercel.app/",
+      githubUrl: "https://github.com/Shree2124/Youtube-Clone",
     },
   ];
 

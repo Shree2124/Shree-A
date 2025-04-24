@@ -6,7 +6,7 @@ const Footer = () => {
         <div className="mx-auto px-4 md:px-6 container">
           <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             <div>
-              <h3 className="mb-4 font-bold text-gradient text-xl">Portfolio</h3>
+              <h3 className="mb-4 font-bold text-gradient text-xl">Shree's Portfolio</h3>
               <p className="mb-6 text-slate-300">
               A passionate Computer Engineer Student specializing in building exceptional digital experiences
               </p>
