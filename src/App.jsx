@@ -10,6 +10,7 @@ import ThemeToggle from './components/ThemeToggle'
 import ExperienceTimeline from './components/ExperienceTimeline'
 import AchievementsTimeline from './components/AchievementsTimeline'
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 
 function App () {
   const [theme, setTheme] = useState('light')
@@ -66,6 +67,7 @@ function App () {
         </main>
         <Footer />
       </div>
+      <SpeedInsights />
       <Analytics />
     </>
   )
