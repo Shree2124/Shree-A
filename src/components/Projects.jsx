@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { ExternalLink, Github, Code } from 'lucide-react';
-import meetai from "../assets/projects/meetai.png"
-import lms from "../assets/projects/lms.png"
-import tunetube from "../assets/projects/tunetube.png"
+import meetai from "../assets/projects/meetai.png";
+import lms from "../assets/projects/lms.png";
+import tunetube from "../assets/projects/tunetube.png";
+import blogify from "../assets/projects/blogify.png";
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -10,13 +11,14 @@ const Projects = () => {
   const filtersRef = useRef(null);
   const projectRefs = useRef([]);
 
+  // Updated projects data with tags array
   const projects = [
     {
       id: 1,
       title: "MeetAI",
       description: "A full-featured AI Powered Meeting Platform.",
       image: meetai,
-      category: "full-stack",
+      tags: ["full-stack", "frontend", "backend"],
       technologies: ["Next.js", "Node.js", "MongoDB", "Express", "GetStream"],
       liveUrl: "https://meet-ai-olive.vercel.app/",
       githubUrl: "https://github.com/Shree2124/meet-ai",
@@ -26,7 +28,7 @@ const Projects = () => {
       title: "LMS (Learning Management System)",
       description: "Interactive Learning Management System with user authentication, course creation, and progress tracking.",
       image: lms,
-      category: "full-stack",
+      tags: ["full-stack", "frontend", "backend"],
       technologies: ["React.js", "Chart.js", "Tailwind CSS", "Node.js", "Express.js"],
       liveUrl: "https://scroll-hack-rust.vercel.app/",
       githubUrl: "https://github.com/Shree2124/ScrollHack",
@@ -36,17 +38,32 @@ const Projects = () => {
       title: "Tune Tube (Youtube Clone)",
       description: "A full stack YouTube clone with user authentication, video upload, like and comment system.",
       image: tunetube,
-      category: "full-stack",
+      tags: ["full-stack", "frontend", "backend"],
       technologies: ["React.js", "Tailwind CSS", "Node.js", "Express.js"],
       liveUrl: "https://youtube-clone-ca89.vercel.app/",
       githubUrl: "https://github.com/Shree2124/Youtube-Clone",
     },
+    {
+      id: 4,
+      title: "Blogify (Blog Storing App)",
+      description: "A blog storing app with appwrite as backend service. This application stores your blog in one place.",
+      image: blogify,
+      tags: ["frontend"],
+      technologies: ["React.js", "Tailwind CSS", "MUI", "Appwrite"],
+      liveUrl: "https://blogify-seven-omega.vercel.app/",
+      githubUrl: "https://github.com/Shree2124/Blogify",
+    },
   ];
 
+  // Get available filters dynamically from project tags
+  const availableFilters = ['all', ...new Set(projects.flatMap(project => project.tags))];
+
+  // Improved filtering logic
   const filteredProjects = activeFilter === 'all' 
     ? projects 
-    : projects.filter(project => project.category === activeFilter);
+    : projects.filter(project => project.tags.includes(activeFilter));
 
+  // Setup intersection observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -62,40 +79,51 @@ const Projects = () => {
     if (titleRef.current) observer.observe(titleRef.current);
     if (filtersRef.current) observer.observe(filtersRef.current);
     
+    // Observe all project refs that exist
     projectRefs.current.forEach(ref => {
       if (ref) observer.observe(ref);
     });
 
     return () => {
-      if (titleRef.current) observer.unobserve(titleRef.current);
-      if (filtersRef.current) observer.unobserve(filtersRef.current);
-      
-      projectRefs.current.forEach(ref => {
-        if (ref) observer.unobserve(ref);
-      });
+      observer.disconnect();
     };
-  }, []);
+  }, [filteredProjects]); // Re-run when filtered projects change
 
+  // Reset and prepare project refs
   useEffect(() => {
-    // Reset refs when filtered projects change
-    projectRefs.current = projectRefs.current.slice(0, filteredProjects.length);
+    // Initialize the refs array with the correct length
+    projectRefs.current = Array(filteredProjects.length).fill(null);
   }, [filteredProjects]);
+
+  // Function to get tag display style
+  const getTagStyle = (tag) => {
+    switch (tag) {
+      case 'frontend':
+        return 'bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-300';
+      case 'backend':
+        return 'bg-purple-100 text-purple-600 dark:bg-purple-900 dark:text-purple-300';
+      case 'full-stack':
+        return 'bg-green-100 text-green-600 dark:bg-green-900 dark:text-green-300';
+      default:
+        return 'bg-gray-100 text-gray-600 dark:bg-gray-900 dark:text-gray-300';
+    }
+  };
 
   return (
     <div className="px-4 md:px-6 py-20">
       <div className="mx-auto container">
         <h2 
           ref={titleRef}
-          className="opacity-0 mb-12 font-bold text-3xl md:text-4xl text-center"
+          className="opacity-0 mb-12 font-bold text-3xl md:text-4xl text-center transition-opacity duration-500"
         >
           My <span className="text-gradient">Projects</span>
         </h2>
         
         <div 
           ref={filtersRef}
-          className="flex flex-wrap justify-center opacity-0 mb-12"
+          className="flex flex-wrap justify-center opacity-0 mb-12 transition-opacity duration-500"
         >
-          {['all', 'frontend', 'backend', 'full-stack'].map((filter) => (
+          {availableFilters.map((filter) => (
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
@@ -116,7 +144,6 @@ const Projects = () => {
               key={project.id}
               ref={el => projectRefs.current[index] = el}
               className="bg-white dark:bg-slate-800 opacity-0 shadow-lg hover:shadow-xl rounded-xl overflow-hidden transition-all hover:-translate-y-2 duration-300 transform"
-              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="group relative overflow-hidden">
                 <img
@@ -164,17 +191,16 @@ const Projects = () => {
                   ))}
                 </div>
                 <div className="flex justify-between items-center">
-                  <span 
-                    className={`text-xs font-medium px-3 py-1 rounded-full ${
-                      project.category === 'frontend' 
-                        ? 'bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-300' 
-                        : project.category === 'backend' 
-                          ? 'bg-purple-100 text-purple-600 dark:bg-purple-900 dark:text-purple-300' 
-                          : 'bg-green-100 text-green-600 dark:bg-green-900 dark:text-green-300'
-                    }`}
-                  >
-                    {project.category.charAt(0).toUpperCase() + project.category.slice(1)}
-                  </span>
+                  <div className="flex flex-wrap gap-1">
+                    {project.tags.map((tag, i) => (
+                      <span 
+                        key={i}
+                        className={`text-xs font-medium px-3 py-1 rounded-full ${getTagStyle(tag)}`}
+                      >
+                        {tag.charAt(0).toUpperCase() + tag.slice(1)}
+                      </span>
+                    ))}
+                  </div>
                   <div className="flex space-x-2">
                     <a
                       href={project.liveUrl}
