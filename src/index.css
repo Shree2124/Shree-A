@@ -78,9 +78,9 @@ body {
 /* Complete CSS for About section with completely fixed typing effect */
 
 /* Floating animation for profile image */
-.floating {
+/* .floating {
   animation: float 6s ease-in-out infinite;
-}
+} */
 
 .floating-slow {
   animation: float 8s ease-in-out infinite;
@@ -189,7 +189,7 @@ body {
   animation: fadeIn 1s ease forwards;
 }
 
-@keyframes fadeIn {
+/* @keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -198,7 +198,7 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-}
+} */
 
 /* Text gradient effect */
 .text-gradient {
@@ -207,3 +207,68 @@ body {
   color: transparent;
   background-image: linear-gradient(to right, #3b82f6, #8b5cf6);
 }
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.text-shadow-3d {
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.1), 
+               2px 2px 0 rgba(0,0,0,0.05), 
+               3px 3px 10px rgba(0,0,0,0.1);
+}
+
+.shadow-3d {
+  box-shadow: 0 10px 30px -15px rgba(0,0,0,0.2),
+              0 5px 10px -7px rgba(0,0,0,0.15);
+}
+
+@keyframes floating {
+  0% { transform: translateY(0px) translateZ(40px); }
+  50% { transform: translateY(-10px) translateZ(40px); }
+  100% { transform: translateY(0px) translateZ(40px); }
+}
+
+@keyframes floating-slow {
+  0% { transform: translateY(0px) translateZ(60px); }
+  50% { transform: translateY(-15px) translateZ(60px); }
+  100% { transform: translateY(0px) translateZ(60px); }
+}
+
+@keyframes floating-reverse {
+  0% { transform: translateY(0px) translateZ(60px); }
+  50% { transform: translateY(15px) translateZ(60px); }
+  100% { transform: translateY(0px) translateZ(60px); }
+}
+
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+.floating-slow {
+  animation: floating-slow 5s ease-in-out infinite;
+}
+
+.floating-reverse {
+  animation: floating-reverse 4s ease-in-out infinite;
+}
+
+
+
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-100px) rotate(180deg); }
+  100% { transform: translateY(-200px) rotate(360deg); opacity: 0; }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
