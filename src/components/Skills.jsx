@@ -36,6 +36,7 @@ const Skills = () => {
       { name: 'Postman', level: 80 },
       { name: 'PyTest', level: 70 },
       { name: 'Selenium', level: 65 },
+      { name: 'Apache Airflow', level: 80 },
     ],
   };
 
