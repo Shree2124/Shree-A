@@ -11,6 +11,7 @@ import ExperienceTimeline from './components/ExperienceTimeline'
 import AchievementsTimeline from './components/AchievementsTimeline'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/react'
+import Services from './components/Service'
 
 function App () {
   const [theme, setTheme] = useState('light')
@@ -54,6 +55,9 @@ function App () {
           </section>
           <section id='experience'>
             <ExperienceTimeline />
+          </section>
+          <section id='services'>
+            <Services />
           </section>
           <section id='achievements'>
             <AchievementsTimeline />

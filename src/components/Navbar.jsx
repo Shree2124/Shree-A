@@ -23,6 +23,7 @@ const Navbar = ({ activeSection, handleNavigation }) => {
     { name: 'About', id: 'about' },
     { name: 'Projects', id: 'projects' },
     { name: 'Experience', id: 'experience' },
+    { name: 'Services', id: 'services' },
     { name: 'Achievements', id: 'achievements' },
     { name: 'Skills', id: 'skills' },
     { name: 'Contact', id: 'contact' },
