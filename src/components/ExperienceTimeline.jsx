@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Briefcase } from 'lucide-react';
 import Hex from "../assets/projects/Hex.png"
 import ngo from "../assets/projects/wechange.png"
+import success from "../assets/projects/successdotai.jpeg"
 
 const ExperienceTimeline = () => {
   const [activeItem, setActiveItem] = useState(0);
@@ -25,6 +26,14 @@ const ExperienceTimeline = () => {
         description: "Building a full-stack web platform for effective NGO management after winning a hackathon based on their problem statement. The NGO invited our team to continue development post-event. The platform is being developed using Flask (Python) for backend services and the MERN stack for dynamic front-end experiences. Key features include member database management, donation tracking, event coordination, and impact assessment dashboards. Working closely with the NGO to deliver a scalable and user-friendly solution tailored to their real-world operations.",
         imageSrc: ngo,
         imageAlt: "NGO Web Platform"
+    },
+    {
+        title: "Full Stack MERN Developer",
+        company: "Success.ai",
+        period: "April 2025 - Present",
+        description: "During my internship as a Full Stack Developer at Success.ai, I worked with MERN, EJS, Firebase, and MUI on diverse projects. In the first month, I contributed to the official company website using EJS, HTML, and CSS, enhancing responsiveness and user experience. In the second month, I developed an internal dashboard with authentication functionality to streamline workflows and improve efficiency. Currently, I am working on a client project – a School Review System in the U.S., which automates the government’s school food program review process by managing multi-role access for Reviewers, Schools, Quality Assurance, and State officials, replacing manual submissions with a fully digital and scalable solution.",
+        imageSrc: success,
+        imageAlt: "Success.ai"
       }
   ];
 
