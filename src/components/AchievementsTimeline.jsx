@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Award, Trophy, Star, Medal, Star } from 'lucide-react';
+import { Award, Trophy, Star, Medal } from 'lucide-react';
 import winner from "../assets/projects/winner.jpg"
 
 const AchievementsTimeline = () => {
